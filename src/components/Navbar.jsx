@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  console.log(isMenuOpen);
+  // console.log(isMenuOpen);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -26,7 +26,7 @@ function Navbar() {
   ];
   return (
     <div>
-      <header className="max-w-screen-2xl xl:px-28 px-4">
+      <header className="max-w-screen-2xl xl:px-28 px-4 absolute top-0 left-0 right-0">
         <nav className=" flex justify-between items-center container md:py-4 pt-6 pb-3">
           <FaSearch className=" text-black   cursor-pointer hidden md:block" />
           {/* Logo */}
@@ -39,7 +39,7 @@ function Navbar() {
               <FaUser />
               Account
             </Link>
-            <Link to="/" className="flex items-center gap-2">
+            <Link to="/about" className="flex items-center gap-2">
               <FaShoppingBag />
               Shopping
             </Link>
@@ -57,7 +57,7 @@ function Navbar() {
         </nav>
         <hr />
         {/* Category Items */}
-        <div className=" pt-4">
+        <div className="pt-4">
           <ul className="hidden lg:flex items-center justify-between text-black ">
             {namItems.map(({ title, path }) => (
               <li key={title}>
@@ -87,5 +87,4 @@ function Navbar() {
     </div>
   );
 }
-
 export default Navbar;

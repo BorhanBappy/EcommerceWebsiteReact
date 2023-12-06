@@ -2,7 +2,7 @@ import React from "react";
 import { FaShoppingBag } from "react-icons/fa";
 function Banner() {
   return (
-    <div className=" bg-primayBG py-12 lg:px-28 px-4" >
+    <div className="bg-primayBG py-12 lg:px-28 px-4" >
       <div className=" py-28 flex flex-col md:flex-row-reverse justify-between gap-14">
         <div className=" md:w-1/2">
           <h1 className=" text-5xl font-light mb-5">Collection</h1>
@@ -15,6 +15,9 @@ function Banner() {
           <img src="/images/banner.png" alt="Banner" />
         </div>
       </div>
+      
+      
+
     </div>
   );
 }
