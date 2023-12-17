@@ -26,9 +26,9 @@ function Navbar() {
   ];
   return (
     <div>
-      <header className="max-w-screen-2xl xl:px-28 px-4 absolute top-0 left-0 right-0">
-        <nav className=" flex justify-between items-center container md:py-4 pt-6 pb-3">
-          <FaSearch className=" text-black   cursor-pointer hidden md:block" />
+      <header className="max-w-screen-2xl container mx-auto xl:px-28 px-4 absolute top-0 left-0 right-0">
+        <nav className=" flex justify-between items-center container mx-auto md:py-4 pt-6 pb-3">
+          <FaSearch className=" text-black cursor-pointer hidden md:block" />
           {/* Logo */}
           <Link to="/">
             <img src={logo} alt="" />
@@ -44,8 +44,9 @@ function Navbar() {
               Shopping
             </Link>
           </div>
+
           {/* Navbar for sm device */}
-          <div className="sm:hidden">
+          <div className="lg:hidden">
             <button onClick={toggleMenu}>
               {isMenuOpen ? (
                 <FaTimes className=" w-5 h-5 text-red-800" />
@@ -56,6 +57,7 @@ function Navbar() {
           </div>
         </nav>
         <hr />
+
         {/* Category Items */}
         <div className="pt-4">
           <ul className="hidden lg:flex items-center justify-between text-black ">
@@ -67,9 +69,9 @@ function Navbar() {
           </ul>
         </div>
         {/* Only Mobile menu items */}
-        <div className="sm:hidden">
+        <div className="lg:hidden">
           <ul
-            className={`bg-black text-white px-4 py-2 rounded ${
+            className={`bg-gray-400 text-black text-lg text-right w-max ml-auto px-4 py-2 rounded ${
               isMenuOpen ? "" : "hidden"
             } `}
           >
