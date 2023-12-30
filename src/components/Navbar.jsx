@@ -71,7 +71,7 @@ function Navbar() {
         {/* Only Mobile menu items */}
         <div className="lg:hidden">
           <ul
-            className={`bg-gray-400 text-black text-lg text-right w-max ml-auto px-4 py-2 rounded ${
+            className={`bg-gray-400 text-white text-lg text-right w-max ml-auto px-4 py-2 rounded ${
               isMenuOpen ? "" : "hidden"
             } `}
           >

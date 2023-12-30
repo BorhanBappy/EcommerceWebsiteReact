@@ -7,7 +7,6 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-
 function BestSeller() {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(false);
@@ -23,13 +22,13 @@ function BestSeller() {
     };
     fetchData();
   }, [error]);
-// console.log(products)
+  // console.log(products)
   const bestSeller = products.filter((item) => item.status === "Best Sellers");
-console.log(bestSeller)
+  // console.log(bestSeller);
   return (
-    <div className="max-w-screen-2xl container mx-auto xl:px-28 px-4 bg-green-100">
+    <div className="max-w-screen-2xl container mx-auto  xl:px-28 px-4 bg-green-100">
       <div className="text-center">
-        <h2 className="title">Best Seller</h2>
+        <h2 className="text-3xl font-semibold capitalize text-center py-8">Best Seller</h2>
         <p className="text-black/75 capitalize mx-auto md:w-2/3 mb-8">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
           placeat nemo facilis. Repellat esse vel ducimus quaerat laudantium ab

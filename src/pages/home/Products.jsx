@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect,useState } from "react";
+import { useEffect, useState } from "react";
 import { FaFilter } from "react-icons/fa";
 import axios from "axios";
 import Card from "../../components/Card";
@@ -73,7 +73,7 @@ const Products = () => {
         break;
     }
 
-    console.log(sortItem);
+    // console.log(sortItem);
     // Update state with sorted items if necessary
     setFilteredItems(sortItem);
   };
@@ -110,7 +110,7 @@ const Products = () => {
             <select
               className="bg-black text-white px-2 py-1 rounded-sm"
               onChange={(e) => handleSorting(e.target.value)}
-              value={sortOption}
+              // value={sortOption}
             >
               <option value="default">Default</option>
               <option value="A-Z">A-Z</option>

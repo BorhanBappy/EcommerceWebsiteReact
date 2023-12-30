@@ -2,7 +2,7 @@ import React from "react";
 
 function Newsletters() {
   return (
-    <div className="max-w-screen-2xl container mx-auto bg-primayBG xl:px-28 px-4 py-16">
+    <div className="max-w-screen-2xl container mx-auto mt-[-64px] bg-primayBG xl:px-28 px-4 py-16">
       <h2 className="text-xl sm:text-3xl font-semibold capitalize text-center my-8">
         Follow products and discounts on Instagram
       </h2>
