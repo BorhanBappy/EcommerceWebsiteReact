@@ -8,9 +8,27 @@ import {
 } from "react-icons/fa";
 import logo from "/logo.svg";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isNavbarFixed, setIsNavbarFixed] = useState(false);
+
+  //
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+
+      // Adjust the threshold based on your design
+      setIsNavbarFixed(scrollY > 100);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   // console.log(isMenuOpen);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -26,7 +44,11 @@ function Navbar() {
   ];
   return (
     <div>
-      <header className="max-w-screen-2xl container mx-auto xl:px-28 px-4 absolute top-0 left-0 right-0">
+      <header
+        className={`max-w-screen-2xl container mx-auto xl:px-28 px-4 mb-10 ${
+          isNavbarFixed ? "fixed top-0 left-0 right-0 bg-white" : ""
+        }`}
+      >
         <nav className=" flex justify-between items-center container mx-auto md:py-4 pt-6 pb-3">
           <FaSearch className=" text-black cursor-pointer hidden md:block" />
           {/* Logo */}

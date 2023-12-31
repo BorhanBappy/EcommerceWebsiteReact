@@ -34,6 +34,7 @@ const Products = () => {
   const showAll = () => {
     setFilteredItems(products);
     // selectedCategory("all")
+
   };
 
   // const location = useLocation();
@@ -98,21 +99,21 @@ const Products = () => {
               Bag
             </Link> */}
             <button onClick={showAll}>All Products</button>
-            <button onClick={() => filterItems("Dress")}>Clothing</button>
+            <button className="active:bg-red-700" onClick={() => filterItems("Dress")}>Clothing</button>
             <button onClick={() => filterItems("Hoodies")}>Hoodies</button>
             <button onClick={() => filterItems("Bag")}>Bag</button>
           </div>
           {/* Sorting Option */}
-          <div className="flex  justify-end my-2 rounded-sm">
+          <div className="flex  justify-end my-2 rounded-sm ">
             <div className="bg-black p-2">
               <FaFilter className="text-white h-4 w-4" />
             </div>
             <select
-              className="bg-black text-white px-2 py-1 rounded-sm"
+              className="bg-black text-white px-2 py-1 rounded-sm cursor-pointer"
               onChange={(e) => handleSorting(e.target.value)}
               // value={sortOption}
             >
-              <option value="default">Default</option>
+              <option className="" value="default">Default</option>
               <option value="A-Z">A-Z</option>
               <option value="Z-A">Z-A</option>
               <option value="low-to-high">Low to High</option>
