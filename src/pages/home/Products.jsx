@@ -29,6 +29,7 @@ const Products = () => {
     // First here check all products using ternary Operator
     const filtered = products.filter((item) => item.category == category);
     setFilteredItems(filtered);
+    setSortOption("default")
   };
   // Show all products
   const showAll = () => {
@@ -50,11 +51,13 @@ const Products = () => {
   // Sorting Functionality
 
   const handleSorting = (option) => {
-    setSortOption(option);
+    // If the default option is selected, set sortOption to "default"
 
+    setSortOption(option);
     // Logic sorting
     let sortItem = [...filteredItems];
 
+    console.log(sortItem);
     switch (option) {
       case "A-Z":
         sortItem.sort((a, b) => a.title.localeCompare(b.title));
@@ -69,7 +72,7 @@ const Products = () => {
         sortItem.sort((a, b) => b.price - a.price);
         break;
       default:
-        // Default sorting or no sorting logic needed
+      sortItem.sort((a, b) => a.id - b.id);
         break;
     }
 
@@ -110,7 +113,7 @@ const Products = () => {
             <select
               className="bg-black text-white px-2 py-1 rounded-sm"
               onChange={(e) => handleSorting(e.target.value)}
-              // value={sortOption}
+              value={sortOption}
             >
               <option value="default">Default</option>
               <option value="A-Z">A-Z</option>
