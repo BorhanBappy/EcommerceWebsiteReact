@@ -41,11 +41,11 @@ function Navbar() {
             </Link>
             <Link to="/" className="flex items-center gap-2">
               <FaShoppingBag />
-              <p
+              {/* <p
                 className="absolute text-white bg-red-600 h-5 w-5 rounded-full text-center font-bold text-sm ml-2"
               >
-                {10}
-              </p>
+                {10} */}
+              {/* </p> */}
             </Link>
           </div>
 
