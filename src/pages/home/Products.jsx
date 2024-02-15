@@ -1,14 +1,18 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { FaFilter } from "react-icons/fa";
 import axios from "axios";
 import Card from "../../components/Card";
+import { clsx as cn } from "clsx";
+
 // import { Link, useLocation } from "react-router-dom";
 const Products = () => {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(false);
   const [filteredItems, setFilteredItems] = useState([]);
   const [sortOption, setSortOption] = useState("default ");
+  const location = useLocation();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,11 +33,13 @@ const Products = () => {
     // First here check all products using ternary Operator
     const filtered = products.filter((item) => item.category == category);
     setFilteredItems(filtered);
-    setSortOption("default")
+    setSortOption("default");
   };
   // Show all products
   const showAll = () => {
     setFilteredItems(products);
+    setSortOption("default");
+
     // selectedCategory("all")
   };
 
@@ -72,7 +78,7 @@ const Products = () => {
         sortItem.sort((a, b) => b.price - a.price);
         break;
       default:
-      sortItem.sort((a, b) => a.id - b.id);
+        sortItem.sort((a, b) => a.id - b.id);
         break;
     }
 
@@ -81,6 +87,29 @@ const Products = () => {
     setFilteredItems(sortItem);
   };
 
+  const filters = [
+    {
+      name: "All Products",
+      to: "/",
+      onClick: showAll,
+    },
+    {
+      name: "Clothing",
+      to: "/clothing",
+      onClick: () => filterItems("Dress"),
+    },
+    {
+      name: "Hoodies",
+      to: "/hoodies",
+      onClick: () => filterItems("Hoodies"),
+    },
+    {
+      name: "Bag",
+      to: "/bag",
+      onClick: () => filterItems("Bag"),
+    },
+  ];
+
   return (
     <div className=" max-w-screen-2xl  container mx-auto lg:px-28 px-4 mb-12">
       <h2 className="title">Or subscribe to the newsletter</h2>
@@ -88,22 +117,23 @@ const Products = () => {
       <div>
         <div className="flex flex-col md:flex-row flex-wrap md:justify-between items-center mb-8">
           <div className="flex flex-row justify-start md:items-center md:gap-8 gap-4 flex-wrap">
-            {/* <Link to="/" onClick={showAll}>
-              All Products
-            </Link>
-            <Link to="/clothing" onClick={() => filterItems("Dress")}>
-              Clothing
-            </Link>
-            <Link to="/hoodies" onClick={() => filterItems("Hoodies")}>
-              Hoodies
-            </Link>
-            <Link to="/bag" onClick={() => filterItems("Bag")}>
-              Bag
-            </Link> */}
-            <button onClick={showAll}>All Products</button>
+            {filters.map((route, index) => (
+              <Link
+                key={index}
+                to={route.to}
+                className={cn(
+                  "flex items-center space-x-2 p-1 border rounded-md",
+                  location.pathname === route.to && "text-blue-700 font-semibold "
+                )}
+                onClick={route.onClick}
+              >
+                {route.name}
+              </Link>
+            ))}
+            {/* <button onClick={showAll}>All Products</button>
             <button onClick={() => filterItems("Dress")}>Clothing</button>
             <button onClick={() => filterItems("Hoodies")}>Hoodies</button>
-            <button onClick={() => filterItems("Bag")}>Bag</button>
+            <button onClick={() => filterItems("Bag")}>Bag</button> */}
           </div>
           {/* Sorting Option */}
           <div className="flex  justify-end my-2 rounded-sm">

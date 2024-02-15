@@ -32,6 +32,7 @@ export default function Footer() {
           </div>
         </div>
         <div>Catalog</div>
+        <li></li>
         <div>About Us</div>
         <div>Customer Services</div>
       </div>

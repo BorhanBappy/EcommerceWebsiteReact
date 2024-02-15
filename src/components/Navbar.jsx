@@ -39,9 +39,13 @@ function Navbar() {
               <FaUser />
               Account
             </Link>
-            <Link to="/about" className="flex items-center gap-2">
+            <Link to="/" className="flex items-center gap-2">
               <FaShoppingBag />
-              Shopping
+              <p
+                className="absolute text-white bg-red-600 h-5 w-5 rounded-full text-center font-bold text-sm ml-2"
+              >
+                {10}
+              </p>
             </Link>
           </div>
 
