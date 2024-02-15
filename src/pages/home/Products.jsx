@@ -111,7 +111,7 @@ const Products = () => {
   ];
 
   return (
-    <div className=" max-w-screen-2xl  container mx-auto lg:px-28 px-4 mb-12">
+    <div id="productsSection"className="  max-w-screen-2xl  container mx-auto lg:px-28 px-4 mb-12">
       <h2 className="title">Or subscribe to the newsletter</h2>
       {/* Product Cards */}
       <div>
@@ -123,7 +123,7 @@ const Products = () => {
                 to={route.to}
                 className={cn(
                   "flex items-center space-x-2 p-1 border rounded-md",
-                  location.pathname === route.to && "text-blue-700 font-semibold "
+                  location.pathname === route.to && "text-[#0F0FF5] font-semibold bg-[#B9D9AB]"
                 )}
                 onClick={route.onClick}
               >
