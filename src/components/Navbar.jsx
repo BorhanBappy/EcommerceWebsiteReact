@@ -75,14 +75,14 @@ function Navbar() {
         {/* Only Mobile menu items */}
         <div className="lg:hidden">
           <ul
-            className={`bg-gray-400 text-white text-lg text-right w-max ml-auto px-4 py-2 rounded ${
+            className={`bg-green-400 text-black text-lg text-right w-max ml-auto px-4 py-2 rounded ${
               isMenuOpen ? "" : "hidden"
-            } `}
+            }`}
           >
             {namItems.map(({ title, path }) => (
               <li
                 key={title}
-                className=" hover:text-orange-500 my-3 cursor-pointer "
+                className="my-3 cursor-pointer transition-all duration-300 ease-in-out transform hover:text-white hover:bg-blue-600 hover:scale-105 rounded px-3 py-2"
               >
                 <Link to={path}>{title}</Link>
               </li>
