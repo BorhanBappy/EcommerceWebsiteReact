@@ -19,6 +19,7 @@ const Products = () => {
       try {
         const response = await axios.get("products.json");
         setProducts(response.data);
+        console.log(products);
         setFilteredItems(response.data);
       } catch {
         setError(error.message);
@@ -125,7 +126,7 @@ const Products = () => {
                 key={index}
                 to={route.to}
                 className={cn(
-                  "flex items-center space-x-2 p-1 border rounded-md",
+                  "flex items-center space-x-2 p-2 border rounded-md transition-all duration-300 ease-in-out transform hover:translate-x-2 hover:bg-[#D1E8E4] hover:shadow-md",
                   location.pathname === route.to &&
                     "text-[#0F0FF5] font-semibold bg-[#B9D9AB]"
                 )}
