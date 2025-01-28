@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { FaFilter } from "react-icons/fa";
 import axios from "axios";
 import Card from "../../components/Card";
-import cn from "clsx";
 import ButtonGroup from "./ButtonGroup ";
 
 const Products = () => {
@@ -11,7 +9,6 @@ const Products = () => {
   const [error, setError] = useState(null);
   const [filteredItems, setFilteredItems] = useState([]);
   const [sortOption, setSortOption] = useState("default");
-  const location = useLocation();
 
   // Fetch data on component mount
   useEffect(() => {

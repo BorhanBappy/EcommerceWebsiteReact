@@ -28,7 +28,9 @@ function BestSeller() {
   return (
     <div className="max-w-screen-2xl container mx-auto  xl:px-28 px-4 bg-green-100">
       <div className="text-center">
-        <h2 className="text-3xl font-semibold capitalize text-center py-8">Best Seller</h2>
+        <h2 className="text-3xl font-semibold capitalize text-center py-8">
+          Best Seller
+        </h2>
         <p className="text-black/75 capitalize mx-auto md:w-2/3 mb-8">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
           placeat nemo facilis. Repellat esse vel ducimus quaerat laudantium ab
@@ -71,7 +73,7 @@ function BestSeller() {
                 <img
                   src={item.image}
                   alt=""
-                  className="mx-auto w-full hover:scale-105 transition-all duration-300"
+                  className="mx-auto w-[312px] h-[400px] object-cover hover:scale-105 transition-all duration-300"
                 />
               </Link>
               <div className="mt-4 px-4">

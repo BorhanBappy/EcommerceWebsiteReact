@@ -23,25 +23,20 @@ function SingleProductList() {
     };
 
     fetchData();
-    // window.scrollTo({top:0,behavior:"smooth",})
   }, [id]);
 
   const handleQuantityChange = (event) => {
-    // Ensure quantity is a positive integer
     const newQuantity = Math.max(1, parseInt(event.target.value) || 0);
     setQuantity(newQuantity);
   };
 
   const handleConfirmOrder = () => {
-    // Show a confirmation dialog
     const userConfirmed = window.confirm(
       "Are you sure you want to confirm the order?"
     );
 
-    // If the user confirmed, set the orderConfirmed flag to true
     if (userConfirmed) {
       setOrderConfirmed(true);
-      // You can add additional logic here, such as sending the order to a backend.
     }
   };
 
@@ -50,8 +45,15 @@ function SingleProductList() {
   return (
     <div>
       <div className="mt-48 flex flex-col md:flex-row items-center justify-between md:ml-4 md:mr-4">
-        <div className="max-w-xs mx-auto bg-white shadow-md overflow-hidden rounded-lg ">
-          <img src={image} alt={title} className="w-full h-full" />
+        <div className="max-w-xs mx-auto bg-white shadow-md overflow-hidden rounded-lg group">
+          <div className="relative overflow-hidden">
+            {/* Add hover zoom effect */}
+            <img
+              src={image}
+              alt={title}
+              className="w-full h-full transition-transform duration-300 transform group-hover:scale-105"
+            />
+          </div>
         </div>
         <div className="md:w-1/2 p-4">
           <div className="px-4 py-2">
@@ -77,10 +79,7 @@ function SingleProductList() {
             />
           </div>
           <h1 className="text-2xl p-4">Product Details</h1>
-          <p className="text-justify">
-            {/* Add your product details here */}
-            {description}
-          </p>
+          <p className="text-justify">{description}</p>
           <button
             className="bg-blue-500 hover:bg-blue-950 text-white px-4 py-2 rounded mt-4"
             onClick={handleConfirmOrder}
